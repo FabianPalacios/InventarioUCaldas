@@ -50,6 +50,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DbModel\Parametros\MarcaDbModel.cs" />
+    <Compile Include="Implementacion\Parametros\ImplMarcaDatos.cs" />
+    <Compile Include="Mapeadores\MapeadorBaseDatos.cs" />
+    <Compile Include="Mapeadores\Parametros\MapeadorMarcaDatos.cs" />
     <Compile Include="ModeloDeDatos\ModeloInventarioUdC.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -100,11 +104,7 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="DbModel\Parametros\" />
-    <Folder Include="Implementacion\Parametros\" />
-    <Folder Include="Mapeadores\Parametros\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <EntityDeploy Include="ModeloDeDatos\ModeloInventarioUdC.edmx">
       <Generator>EntityModelCodeGenerator</Generator>

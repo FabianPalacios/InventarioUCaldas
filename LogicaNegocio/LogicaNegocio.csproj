@@ -41,6 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DTO\Parametros\MarcaDTO.cs" />
+    <Compile Include="Implementacion\Parametros\ImplMarcaLogica.cs" />
+    <Compile Include="Mapeadores\MapeadorBaseLogica.cs" />
+    <Compile Include="Mapeadores\Parametros\MapeadorMarcaLogica.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -49,10 +53,6 @@
       <Name>AccesoDeDatos</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="DTO\Parametros\" />
-    <Folder Include="Implementacion\Parametros\" />
-    <Folder Include="Mapeadores\Parametros\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

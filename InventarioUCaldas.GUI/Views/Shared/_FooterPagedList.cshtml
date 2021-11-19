@@ -1,0 +1,4 @@
+﻿@using PagedList.Mvc;
+@using PagedList;
+
+@Html.PagedListPager((IPagedList)Model, Page => Url.Action("Index", new { Page }))
