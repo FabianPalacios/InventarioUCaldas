@@ -62,6 +62,7 @@
     <Compile Include="Implementacion\Parametros\ImplCategoriaDatos.cs" />
     <Compile Include="Implementacion\Parametros\ImplMarcaDatos.cs" />
     <Compile Include="Implementacion\Persona\ImplPersonaDatos.cs" />
+    <Compile Include="Implementacion\Producto\ImplProductoDatos.cs" />
     <Compile Include="Implementacion\Producto\ImplTipoProductoDatos.cs" />
     <Compile Include="Implementacion\Ubicacion\ImplEdificioDatos.cs" />
     <Compile Include="Implementacion\Ubicacion\ImplEspacioDatos.cs" />
@@ -71,6 +72,7 @@
     <Compile Include="Mapeadores\Parametros\MapeadorCategoriaDatos.cs" />
     <Compile Include="Mapeadores\Parametros\MapeadorMarcaDatos.cs" />
     <Compile Include="Mapeadores\Persona\MapeadorPersonaDatos.cs" />
+    <Compile Include="Mapeadores\Producto\MapeadorProductoDatos.cs" />
     <Compile Include="Mapeadores\Producto\MapeadorTipoProductoDatos.cs" />
     <Compile Include="Mapeadores\Ubicacion\MapeadorEdificioDatos.cs" />
     <Compile Include="Mapeadores\Ubicacion\MapeadorEspacioDatos.cs" />

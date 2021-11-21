@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AccesoDeDatos.DbModel.Producto
+namespace LogicaNegocio.DTO.Producto
 {
-    public class ProductoDbModel
+    public class ProductoDTO
     {
         private int id;
 
@@ -131,9 +131,5 @@ namespace AccesoDeDatos.DbModel.Producto
             get { return documentoPersona; }
             set { documentoPersona = value; }
         }
-
-
-
-
     }
 }

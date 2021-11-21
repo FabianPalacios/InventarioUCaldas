@@ -137,6 +137,7 @@
     <Compile Include="Controllers\Parametros\CategoriaController.cs" />
     <Compile Include="Controllers\Parametros\MarcaController.cs" />
     <Compile Include="Controllers\Persona\PersonaController.cs" />
+    <Compile Include="Controllers\Producto\ProductoController.cs" />
     <Compile Include="Controllers\Producto\TipoProductoController.cs" />
     <Compile Include="Controllers\Ubicacion\EdificioController.cs" />
     <Compile Include="Controllers\Ubicacion\EspacioController.cs" />
@@ -151,6 +152,7 @@
     <Compile Include="Mapeadores\Parametros\MapeadorCategoriaGUI.cs" />
     <Compile Include="Mapeadores\Parametros\MapeadorMarcaGUI.cs" />
     <Compile Include="Mapeadores\Persona\MapeadorPersonaGUI.cs" />
+    <Compile Include="Mapeadores\Producto\MapeadorProductoGUI.cs" />
     <Compile Include="Mapeadores\Producto\MapeadorTipoProductoGUI.cs" />
     <Compile Include="Mapeadores\Ubicacion\MapeadorEdificioGUI.cs" />
     <Compile Include="Mapeadores\Ubicacion\MapeadorEspacioGUI.cs" />
@@ -159,6 +161,7 @@
     <Compile Include="Models\Parametros\ModeloCategoriaGUI.cs" />
     <Compile Include="Models\Parametros\ModeloMarcaGUI.cs" />
     <Compile Include="Models\Persona\ModeloPersonaGUI.cs" />
+    <Compile Include="Models\Producto\ModeloProductoGUI.cs" />
     <Compile Include="Models\Producto\ModeloTipoProductoGUI.cs" />
     <Compile Include="Models\Ubicacion\ModeloEdificioGUI.cs" />
     <Compile Include="Models\Ubicacion\ModeloEspacioGUI.cs" />
@@ -247,6 +250,11 @@
     <Content Include="Views\Persona\Details.cshtml" />
     <Content Include="Views\Persona\Edit.cshtml" />
     <Content Include="Views\Persona\Index.cshtml" />
+    <Content Include="Views\Producto\Index.cshtml" />
+    <Content Include="Views\Producto\Edit.cshtml" />
+    <Content Include="Views\Producto\Details.cshtml" />
+    <Content Include="Views\Producto\Delete.cshtml" />
+    <Content Include="Views\Producto\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

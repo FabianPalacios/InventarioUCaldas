@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Web;
 
-namespace AccesoDeDatos.DbModel.Producto
+namespace InventarioUCaldas.GUI.Models.Producto
 {
-    public class ProductoDbModel
+    public class ModeloProductoGUI
     {
         private int id;
 
@@ -25,7 +25,7 @@ namespace AccesoDeDatos.DbModel.Producto
         }
 
         private string fechaRegistro;
-
+        [DisplayName("Fecha Registro")]
         public string FechaRegistro
         {
             get { return fechaRegistro; }
@@ -93,7 +93,7 @@ namespace AccesoDeDatos.DbModel.Producto
 
 
         private string nombreMarca;
-
+        [DisplayName("Marca")]
         public string NombreMarca
         {
             get { return nombreMarca; }
@@ -101,7 +101,7 @@ namespace AccesoDeDatos.DbModel.Producto
         }
 
         private string nombreCategoria;
-
+        [DisplayName("Categoria")]
         public string NombreCategoria
         {
             get { return nombreCategoria; }
@@ -109,7 +109,7 @@ namespace AccesoDeDatos.DbModel.Producto
         }
 
         private string nombreProducto;
-
+        [DisplayName("Tipo Producto")]
         public string NombreProducto
         {
             get { return nombreProducto; }
@@ -117,7 +117,7 @@ namespace AccesoDeDatos.DbModel.Producto
         }
 
         private string nombreEspacio;
-
+        [DisplayName("Espacio")]
         public string NombreEspacio
         {
             get { return nombreEspacio; }
@@ -125,15 +125,11 @@ namespace AccesoDeDatos.DbModel.Producto
         }
 
         private string documentoPersona;
-
+        [DisplayName("Documento")]
         public string DocumentoPersona
         {
             get { return documentoPersona; }
             set { documentoPersona = value; }
         }
-
-
-
-
     }
 }

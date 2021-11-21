@@ -1,0 +1,82 @@
+﻿@model InventarioUCaldas.GUI.Models.Producto.ModeloProductoGUI
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Persona</h4>
+    <hr />
+    @Html.Partial("_Mensajes")
+<dl class="dl-horizontal">
+    <dt>
+        @Html.DisplayNameFor(model => model.Nombre)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.Nombre)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.FechaRegistro)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.FechaRegistro)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.NombreMarca)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.NombreMarca)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.NombreCategoria)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.NombreCategoria)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.NombreProducto)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.NombreProducto)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.Serial)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.Serial)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.NombreEspacio)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.NombreEspacio)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.DocumentoPersona)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.DocumentoPersona)
+    </dd>
+
+</dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
