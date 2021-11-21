@@ -141,8 +141,8 @@ namespace InventarioUCaldas.GUI.Controllers.Parametros
                     return HttpNotFound();
                 }
                 MapeadorMarcaGUI mapper = new MapeadorMarcaGUI();
-                ModeloMarcaGUI modelo = mapper.MapearTipo1Tipo2(MarcaDTO);
                 ViewBag.mensaje = Mensaje.mensajeErrorEliminar;
+                ModeloMarcaGUI modelo = mapper.MapearTipo1Tipo2(MarcaDTO);     
                 return View("Delete", modelo);
             }
 

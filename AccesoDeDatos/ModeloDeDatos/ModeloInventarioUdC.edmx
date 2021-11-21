@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="InventarioUdCModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="InventarioUdCModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="tb_categoria">
           <Key>
             <PropertyRef Name="id" />
@@ -50,7 +50,7 @@
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="primer_nombre" Type="nvarchar" MaxLength="100" Nullable="false" />
-          <Property Name="otros_nombre" Type="nvarchar" MaxLength="100" />
+          <Property Name="otros_nombres" Type="nvarchar" MaxLength="100" />
           <Property Name="primer_apellido" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="segundo_apellido" Type="nvarchar" MaxLength="100" />
           <Property Name="documento" Type="nvarchar" MaxLength="100" Nullable="false" />
@@ -62,7 +62,7 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="nommbre" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="nombre" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="id_edificio" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="tb_producto">
@@ -251,8 +251,7 @@
             <End Role="tb_producto" EntitySet="tb_producto" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="InventarioUdCModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -308,23 +307,23 @@
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="primer_nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="otros_nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="primer_apellido" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="segundo_apellido" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="documento" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="celular" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="correo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="tb_producto" Relationship="Self.FK__tb_produc__id_pe__2C3393D0" FromRole="tb_persona" ToRole="tb_producto" />
+          <Property Name="otros_nombres" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="tb_piso">
           <Key>
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="nommbre" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="id_edificio" Type="Int32" Nullable="false" />
           <NavigationProperty Name="tb_edificio" Relationship="Self.FK__tb_piso__id_edif__1CF15040" FromRole="tb_piso" ToRole="tb_edificio" />
           <NavigationProperty Name="tb_espacio" Relationship="Self.FK__tb_espaci__id_pi__1FCDBCEB" FromRole="tb_piso" ToRole="tb_espacio" />
+          <Property Name="nombre" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="tb_producto">
           <Key>
@@ -573,9 +572,9 @@
           <EntitySetMapping Name="tb_persona">
             <EntityTypeMapping TypeName="InventarioUdCModel.tb_persona">
               <MappingFragment StoreEntitySet="tb_persona">
+                <ScalarProperty Name="otros_nombres" ColumnName="otros_nombres" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="primer_nombre" ColumnName="primer_nombre" />
-                <ScalarProperty Name="otros_nombre" ColumnName="otros_nombre" />
                 <ScalarProperty Name="primer_apellido" ColumnName="primer_apellido" />
                 <ScalarProperty Name="segundo_apellido" ColumnName="segundo_apellido" />
                 <ScalarProperty Name="documento" ColumnName="documento" />
@@ -587,8 +586,8 @@
           <EntitySetMapping Name="tb_piso">
             <EntityTypeMapping TypeName="InventarioUdCModel.tb_piso">
               <MappingFragment StoreEntitySet="tb_piso">
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
                 <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="nommbre" ColumnName="nommbre" />
                 <ScalarProperty Name="id_edificio" ColumnName="id_edificio" />
               </MappingFragment>
             </EntityTypeMapping>

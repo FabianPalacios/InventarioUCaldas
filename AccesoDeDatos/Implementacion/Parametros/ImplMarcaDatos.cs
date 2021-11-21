@@ -62,7 +62,6 @@ namespace AccesoDeDatos.Implementacion.Parametros
                         bd.SaveChanges();
                         return true;
                     }
-
                 }
             }
             catch (Exception e)

@@ -134,15 +134,36 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\Parametros\CategoriaController.cs" />
     <Compile Include="Controllers\Parametros\MarcaController.cs" />
+    <Compile Include="Controllers\Persona\PersonaController.cs" />
+    <Compile Include="Controllers\Producto\TipoProductoController.cs" />
+    <Compile Include="Controllers\Ubicacion\EdificioController.cs" />
+    <Compile Include="Controllers\Ubicacion\EspacioController.cs" />
+    <Compile Include="Controllers\Ubicacion\PisoController.cs" />
+    <Compile Include="Controllers\Ubicacion\SedeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\DatosGenerales.cs" />
     <Compile Include="Helpers\Mensaje.cs" />
     <Compile Include="Mapeadores\MapeadorBaseGUI.cs" />
+    <Compile Include="Mapeadores\Parametros\MapeadorCategoriaGUI.cs" />
     <Compile Include="Mapeadores\Parametros\MapeadorMarcaGUI.cs" />
+    <Compile Include="Mapeadores\Persona\MapeadorPersonaGUI.cs" />
+    <Compile Include="Mapeadores\Producto\MapeadorTipoProductoGUI.cs" />
+    <Compile Include="Mapeadores\Ubicacion\MapeadorEdificioGUI.cs" />
+    <Compile Include="Mapeadores\Ubicacion\MapeadorEspacioGUI.cs" />
+    <Compile Include="Mapeadores\Ubicacion\MapeadorPisoGUI.cs" />
+    <Compile Include="Mapeadores\Ubicacion\MapeadorSedeGUI.cs" />
+    <Compile Include="Models\Parametros\ModeloCategoriaGUI.cs" />
     <Compile Include="Models\Parametros\ModeloMarcaGUI.cs" />
+    <Compile Include="Models\Persona\ModeloPersonaGUI.cs" />
+    <Compile Include="Models\Producto\ModeloTipoProductoGUI.cs" />
+    <Compile Include="Models\Ubicacion\ModeloEdificioGUI.cs" />
+    <Compile Include="Models\Ubicacion\ModeloEspacioGUI.cs" />
+    <Compile Include="Models\Ubicacion\ModeloPisoGUI.cs" />
+    <Compile Include="Models\Ubicacion\ModeloSedeGUI.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -191,6 +212,41 @@
     <Content Include="Views\Marca\Delete.cshtml" />
     <Content Include="Views\Marca\Create.cshtml" />
     <Content Include="Views\Shared\_FooterPagedList.cshtml" />
+    <Content Include="Views\Categoria\Index.cshtml" />
+    <Content Include="Views\Categoria\Edit.cshtml" />
+    <Content Include="Views\Categoria\Details.cshtml" />
+    <Content Include="Views\Categoria\Delete.cshtml" />
+    <Content Include="Views\Categoria\Create.cshtml" />
+    <Content Include="Views\TipoProducto\Index.cshtml" />
+    <Content Include="Views\TipoProducto\Edit.cshtml" />
+    <Content Include="Views\TipoProducto\Details.cshtml" />
+    <Content Include="Views\TipoProducto\Delete.cshtml" />
+    <Content Include="Views\TipoProducto\Create.cshtml" />
+    <Content Include="Views\Sede\Index.cshtml" />
+    <Content Include="Views\Sede\Edit.cshtml" />
+    <Content Include="Views\Sede\Details.cshtml" />
+    <Content Include="Views\Sede\Delete.cshtml" />
+    <Content Include="Views\Sede\Create.cshtml" />
+    <Content Include="Views\Edificio\Index.cshtml" />
+    <Content Include="Views\Edificio\Edit.cshtml" />
+    <Content Include="Views\Edificio\Details.cshtml" />
+    <Content Include="Views\Edificio\Delete.cshtml" />
+    <Content Include="Views\Edificio\Create.cshtml" />
+    <Content Include="Views\Piso\Create.cshtml" />
+    <Content Include="Views\Piso\Delete.cshtml" />
+    <Content Include="Views\Piso\Details.cshtml" />
+    <Content Include="Views\Piso\Edit.cshtml" />
+    <Content Include="Views\Piso\Index.cshtml" />
+    <Content Include="Views\Espacio\Create.cshtml" />
+    <Content Include="Views\Espacio\Delete.cshtml" />
+    <Content Include="Views\Espacio\Details.cshtml" />
+    <Content Include="Views\Espacio\Edit.cshtml" />
+    <Content Include="Views\Espacio\Index.cshtml" />
+    <Content Include="Views\Persona\Create.cshtml" />
+    <Content Include="Views\Persona\Delete.cshtml" />
+    <Content Include="Views\Persona\Details.cshtml" />
+    <Content Include="Views\Persona\Edit.cshtml" />
+    <Content Include="Views\Persona\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

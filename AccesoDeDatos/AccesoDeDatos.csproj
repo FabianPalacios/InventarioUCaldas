@@ -50,10 +50,32 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DbModel\Parametros\CategoriaDbModel.cs" />
     <Compile Include="DbModel\Parametros\MarcaDbModel.cs" />
+    <Compile Include="DbModel\Persona\PersonaDbModel.cs" />
+    <Compile Include="DbModel\Producto\ProductoDbModel.cs" />
+    <Compile Include="DbModel\Producto\TipoProductoDbModel.cs" />
+    <Compile Include="DbModel\Ubicacion\EdificioDbModel.cs" />
+    <Compile Include="DbModel\Ubicacion\EspacioDbModel.cs" />
+    <Compile Include="DbModel\Ubicacion\PisoDbModel.cs" />
+    <Compile Include="DbModel\Ubicacion\SedeDbModel.cs" />
+    <Compile Include="Implementacion\Parametros\ImplCategoriaDatos.cs" />
     <Compile Include="Implementacion\Parametros\ImplMarcaDatos.cs" />
+    <Compile Include="Implementacion\Persona\ImplPersonaDatos.cs" />
+    <Compile Include="Implementacion\Producto\ImplTipoProductoDatos.cs" />
+    <Compile Include="Implementacion\Ubicacion\ImplEdificioDatos.cs" />
+    <Compile Include="Implementacion\Ubicacion\ImplEspacioDatos.cs" />
+    <Compile Include="Implementacion\Ubicacion\ImplPisoDatos.cs" />
+    <Compile Include="Implementacion\Ubicacion\ImplSedeDatos.cs" />
     <Compile Include="Mapeadores\MapeadorBaseDatos.cs" />
+    <Compile Include="Mapeadores\Parametros\MapeadorCategoriaDatos.cs" />
     <Compile Include="Mapeadores\Parametros\MapeadorMarcaDatos.cs" />
+    <Compile Include="Mapeadores\Persona\MapeadorPersonaDatos.cs" />
+    <Compile Include="Mapeadores\Producto\MapeadorTipoProductoDatos.cs" />
+    <Compile Include="Mapeadores\Ubicacion\MapeadorEdificioDatos.cs" />
+    <Compile Include="Mapeadores\Ubicacion\MapeadorEspacioDatos.cs" />
+    <Compile Include="Mapeadores\Ubicacion\MapeadorPisoDatos.cs" />
+    <Compile Include="Mapeadores\Ubicacion\MapeadorSedeDatos.cs" />
     <Compile Include="ModeloDeDatos\ModeloInventarioUdC.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

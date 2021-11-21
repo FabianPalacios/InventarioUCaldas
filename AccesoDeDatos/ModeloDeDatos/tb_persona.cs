@@ -22,12 +22,12 @@ namespace AccesoDeDatos.ModeloDeDatos
     
         public int id { get; set; }
         public string primer_nombre { get; set; }
-        public string otros_nombre { get; set; }
         public string primer_apellido { get; set; }
         public string segundo_apellido { get; set; }
         public string documento { get; set; }
         public string celular { get; set; }
         public string correo { get; set; }
+        public string otros_nombres { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tb_producto> tb_producto { get; set; }

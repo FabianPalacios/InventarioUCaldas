@@ -1,0 +1,44 @@
+﻿@model InventarioUCaldas.GUI.Models.Ubicacion.ModeloEdificioGUI
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>tb_marca</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Bloque)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Bloque)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NombreSede)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NombreSede)
+        </dd>
+
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
