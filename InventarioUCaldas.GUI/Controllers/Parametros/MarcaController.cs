@@ -1,5 +1,6 @@
 ﻿using InventarioUCaldas.GUI.Helpers;
 using InventarioUCaldas.GUI.Mapeadores.Parametros;
+using InventarioUCaldas.GUI.Mapeadores.Producto;
 using InventarioUCaldas.GUI.Models.Parametros;
 using LogicaNegocio.DTO.Parametros;
 using LogicaNegocio.Implementacion.Parametros;

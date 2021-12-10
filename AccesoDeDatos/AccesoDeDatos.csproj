@@ -53,6 +53,7 @@
     <Compile Include="DbModel\Parametros\CategoriaDbModel.cs" />
     <Compile Include="DbModel\Parametros\MarcaDbModel.cs" />
     <Compile Include="DbModel\Persona\PersonaDbModel.cs" />
+    <Compile Include="DbModel\Producto\FotoProductoDbModel.cs" />
     <Compile Include="DbModel\Producto\ProductoDbModel.cs" />
     <Compile Include="DbModel\Producto\TipoProductoDbModel.cs" />
     <Compile Include="DbModel\Ubicacion\EdificioDbModel.cs" />
@@ -72,6 +73,7 @@
     <Compile Include="Mapeadores\Parametros\MapeadorCategoriaDatos.cs" />
     <Compile Include="Mapeadores\Parametros\MapeadorMarcaDatos.cs" />
     <Compile Include="Mapeadores\Persona\MapeadorPersonaDatos.cs" />
+    <Compile Include="Mapeadores\Producto\MapeadorFotoProductoDatos.cs" />
     <Compile Include="Mapeadores\Producto\MapeadorProductoDatos.cs" />
     <Compile Include="Mapeadores\Producto\MapeadorTipoProductoDatos.cs" />
     <Compile Include="Mapeadores\Ubicacion\MapeadorEdificioDatos.cs" />

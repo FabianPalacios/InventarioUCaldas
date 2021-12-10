@@ -6,6 +6,7 @@ using LogicaNegocio.DTO.Producto;
 using LogicaNegocio.DTO.Ubicacion;
 using LogicaNegocio.Mapeadores.Parametros;
 using LogicaNegocio.Mapeadores.Persona;
+using LogicaNegocio.Mapeadores.Pr;
 using LogicaNegocio.Mapeadores.Producto;
 using LogicaNegocio.Mapeadores.Ubicacion;
 using System;
@@ -102,6 +103,29 @@ namespace LogicaNegocio.Implementacion.Producto
         {
             Boolean res = this.accesoDatos.EliminarRegistro(id);
             return res;
+        }
+
+        public Boolean EliminarRegistroFoto(int id)
+        {
+            Boolean res = this.accesoDatos.EliminarRegistroFoto(id);
+            return res;
+        }
+
+        public Boolean GuardarNombreFoto(FotoProductoDTO dto)
+
+        {
+            MapeadorFotoProductoLogica mapeador = new MapeadorFotoProductoLogica();
+            FotoProductoDbModel dbModel = mapeador.MapearTipo2Tipo1(dto);
+            bool res = this.accesoDatos.GuardarFotoProducto(dbModel);
+            return res;
+        } 
+
+        public IEnumerable<FotoProductoDTO> listarFotoProductoPorId(int idVehiculo)
+        {
+            IEnumerable<FotoProductoDbModel> listaDbModel = this.accesoDatos.ListarFotosProductoPorId(idVehiculo);
+            MapeadorFotoProductoLogica mapeador = new MapeadorFotoProductoLogica();
+            IEnumerable<FotoProductoDTO> lista = mapeador.MapearTipo1Tipo2(listaDbModel);
+            return lista;
         }
     }
 }

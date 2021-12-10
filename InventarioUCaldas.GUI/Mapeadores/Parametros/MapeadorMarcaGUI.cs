@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace InventarioUCaldas.GUI.Mapeadores.Parametros
+namespace InventarioUCaldas.GUI.Mapeadores.Producto
 {
     public class MapeadorMarcaGUI : MapeadorBaseGUI<MarcaDTO, ModeloMarcaGUI>
     {

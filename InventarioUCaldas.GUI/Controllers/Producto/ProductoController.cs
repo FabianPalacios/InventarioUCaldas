@@ -6,6 +6,7 @@ using LogicaNegocio.Implementacion.Producto;
 using PagedList;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -63,7 +64,6 @@ namespace InventarioUCaldas.GUI.Controllers.Producto
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que quiere enlazarse. Para obtener 
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public ActionResult Create(ModeloProductoGUI modelo)
         {
             if (ModelState.IsValid)
@@ -104,7 +104,7 @@ namespace InventarioUCaldas.GUI.Controllers.Producto
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que quiere enlazarse. Para obtener 
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
+        
         public ActionResult Edit( ModeloProductoGUI modelo)
         {
             if (ModelState.IsValid)
@@ -141,7 +141,6 @@ namespace InventarioUCaldas.GUI.Controllers.Producto
 
         // POST: Producto/Delete/5
         [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
             bool respuesta = logica.EliminarRegistro(id);
@@ -161,6 +160,89 @@ namespace InventarioUCaldas.GUI.Controllers.Producto
                 ModeloProductoGUI modelo = mapper.MapearTipo1Tipo2(ProductoDTO);
                 return View("Delete", modelo);
             }
+
+        }
+        [HttpGet]
+         public ActionResult SubirFoto(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            ModeloCargaImagenProductoGUI modelo = CrearModeloCargarImagenProducto(id);
+            return View(modelo);
+        }
+
+        private ModeloCargaImagenProductoGUI CrearModeloCargarImagenProducto(int? id)
+        {
+            IEnumerable<FotoProductoDTO> listaDto = logica.listarFotoProductoPorId(id.Value);
+            MapeadorFotoProductoGUI mapeador = new MapeadorFotoProductoGUI();
+            IEnumerable<ModeloFotoProductoGUI> listaFotos = mapeador.MapearTipo1Tipo2(listaDto);
+            if(listaFotos == null)
+            {
+                listaFotos = new List<ModeloFotoProductoGUI>();
+            }
+            ModeloCargaImagenProductoGUI modelo = new ModeloCargaImagenProductoGUI()
+            {
+                Id = id.Value,
+                ListadoImagenesProducto = listaFotos
+            };
+            return modelo;
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult SubirFoto(ModeloCargaImagenProductoGUI modelo)
+        { 
+            try
+            {
+                if(modelo.Archivos.ContentLength > 0)
+                {
+                    try
+                    {
+                        DateTime ahora = DateTime.Now;
+                        string fecha_nombre = String.Format("{0}_{1}_{2}_{3}_{4}_{5}", ahora.Day, ahora.Month, ahora.Year, ahora.Hour, ahora.Minute, ahora.Millisecond);
+                        string nombreArchivo = String.Concat(fecha_nombre, "_", Path.GetFileName(modelo.Archivos.FileName));
+                        string rutaCarpeta = DatosGenerales.RutaArchivosProducto;
+                        string rutaCompletaArchivo = Path.Combine(Server.MapPath(rutaCarpeta), nombreArchivo);
+                        modelo.Archivos.SaveAs(rutaCompletaArchivo);
+                        FotoProductoDTO dto = new FotoProductoDTO() {
+                            IdProducto = modelo.Id,
+                            NombreFoto = nombreArchivo,
+                        };
+                        logica.GuardarNombreFoto(dto);
+
+                        //Guardar nombre de archivo
+
+                        ViewBag.UploadFileMessage = "Archivo cargado correctamente ";
+                        ModeloCargaImagenProductoGUI modeloView = CrearModeloCargarImagenProducto(modelo.Id);  
+                        return View(modeloView);
+                    }
+                    catch
+                    {
+
+                    }
+                }
+                ViewBag.UploadFileMessage = "Porfavor seleccione al menos un archivo por cargar ";
+                return View();
+            }
+            catch (Exception e)
+            {
+                ViewBag.UploadFileMessage = "Error al cargar el archivo. ";
+                return View(); 
+            }
+        }
+
+        public ActionResult EliminarFoto(int idFotoProducto, String nombreFotoProducto)
+        {
+            bool respuesta = logica.EliminarRegistroFoto(idFotoProducto);
+            if (respuesta)
+            {
+                string rutaCarpeta = DatosGenerales.RutaArchivosProducto;
+                string rutaCompletaArchivo = Path.Combine(Server.MapPath(rutaCarpeta), nombreFotoProducto);
+                System.IO.File.Delete(rutaCompletaArchivo);
+            }
+            return RedirectToAction("Index");
 
         }
     }

@@ -219,5 +219,73 @@ namespace AccesoDeDatos.Implementacion.Producto
                 throw e;
             }
         }
+
+        public bool EliminarRegistroFoto(int id)
+        {
+            try
+            {
+                using (InventarioUdCEntities bd = new InventarioUdCEntities())
+                {
+
+                    //Verificación de la existencia de un registro con el mismo id
+                    tb_foto registo = bd.tb_foto.Find(id);
+                    if (registo == null)
+                    {
+                        return false;
+                    }
+                    else
+                    {
+                        bd.tb_foto.Remove(registo);
+                        bd.SaveChanges();
+                        return true;
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        public bool GuardarFotoProducto(FotoProductoDbModel dbModel)
+        {
+            try
+            {
+                using (InventarioUdCEntities bd = new InventarioUdCEntities())
+                {
+                    if (bd.tb_producto.Where(x => x.id == dbModel.IdProducto).Count() > 0)
+                    {
+                        MapeadorFotoProductoDatos mapeador = new MapeadorFotoProductoDatos();
+                        tb_foto foto = mapeador.MapearTipo2Tipo1(dbModel);
+                        bd.tb_foto.Add(foto);
+                        bd.SaveChanges();
+                        return true;
+                    }
+                    return false;
+                }
+
+            }
+            catch(Exception e)
+            {
+                throw e;
+            }
+
+
+        }
+
+        public IEnumerable<FotoProductoDbModel> ListarFotosProductoPorId(int id)
+        {
+            using (InventarioUdCEntities db = new InventarioUdCEntities())
+            {
+               // var lista = db.tb_foto.Where(x => x.id_producto == id).ToList();
+                var lista = (from f in db.tb_foto
+                             where f.id_producto == id
+                             select f).ToList();
+
+                MapeadorFotoProductoDatos mapeador = new MapeadorFotoProductoDatos();
+                IEnumerable<FotoProductoDbModel> listaDbModel = mapeador.MapearTipo1Tipo2(lista);
+                return listaDbModel;
+            }
+        }
     }
 }

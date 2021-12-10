@@ -44,6 +44,7 @@
     <Compile Include="DTO\Parametros\CategoriaDTO.cs" />
     <Compile Include="DTO\Parametros\MarcaDTO.cs" />
     <Compile Include="DTO\Persona\PersonaDTO.cs" />
+    <Compile Include="DTO\Producto\FotoProductoDTO.cs" />
     <Compile Include="DTO\Producto\ProductoDTO.cs" />
     <Compile Include="DTO\Producto\TipoProductoDTO.cs" />
     <Compile Include="DTO\Ubicacion\EdificioDTO.cs" />
@@ -63,6 +64,7 @@
     <Compile Include="Mapeadores\Parametros\MapeadorCategoriaLogica.cs" />
     <Compile Include="Mapeadores\Parametros\MapeadorMarcaLogica.cs" />
     <Compile Include="Mapeadores\Persona\MapeadorPersonaLogica.cs" />
+    <Compile Include="Mapeadores\Producto\MapeadorFotoProductoLogica.cs" />
     <Compile Include="Mapeadores\Producto\MapeadorProductoLogica.cs" />
     <Compile Include="Mapeadores\Producto\MapeadorTipoProductoLogica.cs" />
     <Compile Include="Mapeadores\Ubicacion\MapeadorEdificioLogica.cs" />
