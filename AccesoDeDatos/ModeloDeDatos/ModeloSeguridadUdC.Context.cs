@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace AccesoDeDatos.Seguridad
+namespace AccesoDeDatos.ModeloDeDatos
 {
     using System;
     using System.Data.Entity;
