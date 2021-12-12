@@ -7,15 +7,20 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace AccesoDeDatos.ModeloDeDatos
+namespace AccesoDeDatos.Seguridad
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class tb_foto
+    public partial class SEC_SESSION
     {
-        public int id { get; set; }
-        public string nombre { get; set; }
-        public int id_producto { get; set; }
+        public long ID { get; set; }
+        public int USERID { get; set; }
+        public System.DateTime LOGIN_DATE { get; set; }
+        public string IP_ADDRESS { get; set; }
+        public string TOKEN { get; set; }
+        public bool TOKEN_STATUS { get; set; }
+    
+        public virtual SEC_USER SEC_USER { get; set; }
     }
 }

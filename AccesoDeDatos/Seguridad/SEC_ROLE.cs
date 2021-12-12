@@ -7,25 +7,23 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace AccesoDeDatos.ModeloDeDatos
+namespace AccesoDeDatos.Seguridad
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class tb_piso
+    public partial class SEC_ROLE
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public tb_piso()
+        public SEC_ROLE()
         {
-            this.tb_espacio = new HashSet<tb_espacio>();
+            this.SEC_USER_ROLE = new HashSet<SEC_USER_ROLE>();
         }
     
-        public int id { get; set; }
-        public string nombre { get; set; }
-        public int id_edificio { get; set; }
+        public int ID { get; set; }
+        public string NAME { get; set; }
     
-        public virtual tb_edificio tb_edificio { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<tb_espacio> tb_espacio { get; set; }
+        public virtual ICollection<SEC_USER_ROLE> SEC_USER_ROLE { get; set; }
     }
 }

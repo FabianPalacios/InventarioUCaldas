@@ -14,12 +14,6 @@ namespace AccesoDeDatos.ModeloDeDatos
     
     public partial class tb_producto
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public tb_producto()
-        {
-            this.tb_foto = new HashSet<tb_foto>();
-        }
-    
         public int id { get; set; }
         public string nombre { get; set; }
         public string fecha_registro { get; set; }
@@ -33,8 +27,6 @@ namespace AccesoDeDatos.ModeloDeDatos
     
         public virtual tb_categoria tb_categoria { get; set; }
         public virtual tb_espacio tb_espacio { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<tb_foto> tb_foto { get; set; }
         public virtual tb_marca tb_marca { get; set; }
         public virtual tb_persona tb_persona { get; set; }
         public virtual tb_tipoProducto tb_tipoProducto { get; set; }
