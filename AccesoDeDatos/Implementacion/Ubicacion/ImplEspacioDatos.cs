@@ -28,7 +28,7 @@ namespace AccesoDeDatos.Implementacion.Ubicacion
                 int regDescartados = (paginaActual - 1) * numRegistrosPorPagina;
                 //lista = bd.tb_espacio.Where(x => x.nombre.Contains(filtro)).Skip(regDescartados).Take(numRegistrosPorPagina).ToList();
                 var listaDatos = (from e in bd.tb_espacio
-                                  where e.nombre.Contains(filtro)
+                                  where e.nombre.Contains(filtro) 
                                   select e).OrderBy(m => m.id).ToList();
                 totalRegistros = listaDatos.Count();
                 listaDatos = listaDatos.OrderBy(m => m.id).Skip(regDescartados).Take(numRegistrosPorPagina).ToList();

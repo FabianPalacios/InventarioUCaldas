@@ -17,8 +17,13 @@ namespace InventarioUCaldas.GUI.Controllers.Persona
     {
         private ImplPersonaLogica logica = new ImplPersonaLogica();
 
-        public ActionResult Index(int? page, String filtro = "")
+        public ActionResult Index(string filtro, int? page)
         {
+            if (filtro == null)
+            {
+                filtro = "";
+            }
+
             int numPagina = page ?? 1;
             int totalRegistros;
             int registrosPorPagina = DatosGenerales.RegistrosPorPagina;

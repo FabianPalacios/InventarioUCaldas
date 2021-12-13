@@ -34,7 +34,7 @@ namespace AccesoDeDatos.Implementacion.Producto
                 int regDescartados = (paginaActual - 1) * numRegistrosPorPagina;
                 //lista = bd.tb_producto.Where(x => x.nombre.Contains(filtro)).Skip(regDescartados).Take(numRegistrosPorPagina).ToList();
                 var listaDatos = (from m in bd.tb_producto
-                                  where m.nombre.Contains(filtro)
+                                  where m.nombre.Contains(filtro) || m.serial.Contains(filtro)
                                   select m).OrderBy(m => m.id).ToList();
                 totalRegistros = listaDatos.Count();
                 listaDatos = listaDatos.OrderBy(m => m.id).Skip(regDescartados).Take(numRegistrosPorPagina).ToList();
