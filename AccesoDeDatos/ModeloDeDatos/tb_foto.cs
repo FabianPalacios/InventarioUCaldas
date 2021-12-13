@@ -17,5 +17,7 @@ namespace AccesoDeDatos.ModeloDeDatos
         public int id { get; set; }
         public string nombre { get; set; }
         public int id_producto { get; set; }
+    
+        public virtual tb_producto tb_producto { get; set; }
     }
 }

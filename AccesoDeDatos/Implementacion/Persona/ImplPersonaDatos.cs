@@ -83,6 +83,20 @@ namespace AccesoDeDatos.Implementacion.Persona
             }
         }
 
+        /// <summary>
+        /// Método de búsqueda de un registro
+        /// </summary>
+        /// <param name="documento">Id del registro a buscar</param>
+        /// <returns>el objeto con id buscado o null cuando no exista</returns>
+        public PersonaDbModel BuscarCorreoPersona(string documento)
+        {
+            using (InventarioUdCEntities bd = new InventarioUdCEntities())
+            {
+                tb_persona registro = (tb_persona)bd.tb_persona.Where(x => x.documento == documento);
+                return new MapeadorPersonaDatos().MapearTipo1Tipo2(registro);
+            }
+        }
+
 
         /// <summary>
         /// Método para editar un registro

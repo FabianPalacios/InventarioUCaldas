@@ -41,6 +41,13 @@ namespace LogicaNegocio.Implementacion.Producto
             return mapeador.MapearTipo1Tipo2(listado);
         }
 
+        public IEnumerable<ProductoDTO> ListarProductosPersona(int id)
+        {
+            var listado = this.accesoDatos.ListarProductosPersona(id);
+            MapeadorProductoLogica mapeador = new MapeadorProductoLogica();
+            return mapeador.MapearTipo1Tipo2(listado);
+        }
+
         public IEnumerable<MarcaDTO> ListarRegistrosMarca()
         {
             var listado = this.accesoDatos.ListarRegistrosMarca();

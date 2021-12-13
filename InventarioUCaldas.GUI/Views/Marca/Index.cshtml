@@ -12,9 +12,15 @@
 </p>
 
 
+@using (Html.BeginForm())
+{
+    <p>
+        Buscar Registro: @Html.TextBox("filtro", ViewBag.FilterValue as string)
+        <input type="submit" class="btn btn-light" value="filtro" />
+    </p>
 
-<input type="text" name="filtro" placeholder="Buscar" />
-<input type="submit" name="submit" value="buscar" />
+}
+
 <table class="table table-responsive">
     <thead>
         <tr>
@@ -40,4 +46,6 @@
         }
     </tbody>
 </table>
-@Html.Partial("_FooterPagedList")
+<center>
+    @Html.Partial("_FooterPagedList")
+</center>

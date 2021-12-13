@@ -2,6 +2,8 @@
 using InventarioUCaldas.GUI.Mapeadores.Producto;
 using InventarioUCaldas.GUI.Models.Producto;
 using LogicaNegocio.DTO.Producto;
+using LogicaNegocio.DTO.Persona;
+using LogicaNegocio.Implementacion.Persona;
 using LogicaNegocio.Implementacion.Producto;
 using PagedList;
 using System;
@@ -11,12 +13,14 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using System.Configuration;
 
 namespace InventarioUCaldas.GUI.Controllers.Producto
 {
     public class ProductoController : Controller
     {
         private ImplProductoLogica logica = new ImplProductoLogica();
+        private ImplPersonaLogica logicaPersona = new ImplPersonaLogica();
 
         public ActionResult Index(int? page, String filtro = "")
         {
@@ -70,6 +74,7 @@ namespace InventarioUCaldas.GUI.Controllers.Producto
             {
                 MapeadorProductoGUI mapper = new MapeadorProductoGUI();
                 ProductoDTO ProductoDTO = mapper.MapearTipo2Tipo1(modelo);
+                ProductoResponse(modelo);
                 logica.GuardarRegistro(ProductoDTO);
                 return RedirectToAction("Index");
             }
@@ -245,5 +250,36 @@ namespace InventarioUCaldas.GUI.Controllers.Producto
             return RedirectToAction("Index");
 
         }
+
+        public ActionResult ProductoResponse(ModeloProductoGUI modelo)
+        {
+
+            PersonaDTO personaDTO = logicaPersona.BuscarRegistro(modelo.IdPersona);
+            
+            if (personaDTO.Correo != null)
+            {
+                Console.WriteLine("Correo enviado a ", personaDTO.Correo);
+                var email = personaDTO.Correo;
+                String content = String.Format("INVENTARIO UCALDAS, " +
+                "<br /> Inventario UNIVERSIDAD DE CALDAS " +
+                "Le informamos los productos que tiene asocciados. <br/>" +
+                " <ul>" +
+                "<li> PRODUCTO : " +modelo.Nombre+"</li>" +
+                "<li> FECHA     : " + modelo.FechaRegistro + "</li>" +
+                "<li> MARCA     : " + modelo.NombreMarca + "</li>" +
+                "<li> CATEGORIA : " + modelo.NombreCategoria + "</li>" +
+                "<li> TIPO PRODUCTO : " + modelo.NombreProducto + "</li>" +
+                "<li> SERIAL : " + modelo.Serial + "</li>" +
+                "<li> ESPACIO : " + modelo.NombreEspacio + "</li>" +
+                "</ul>" +
+                "<br /> Cordial saludo, <br />" +
+                "UNIVERSIDAD DE CALDAS.");
+                string From = ConfigurationManager.AppSettings["EmailFromSendGrid"];
+                new LogicaNegocio.Services.Notifications().SendEmail("Respuesta a solicitud", content, email, From);
+            }
+            return View(modelo);
+        }
+
+
     }
 }

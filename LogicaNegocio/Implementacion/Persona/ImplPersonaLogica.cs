@@ -40,6 +40,12 @@ namespace LogicaNegocio.Implementacion.Persona
             MapeadorPersonaLogica mapeador = new MapeadorPersonaLogica();
             return mapeador.MapearTipo1Tipo2(registro);
         }
+        public PersonaDTO BuscarCorreoPersona(string documento)
+        {
+            var registro = this.accesoDatos.BuscarCorreoPersona(documento);
+            MapeadorPersonaLogica mapeador = new MapeadorPersonaLogica();
+            return mapeador.MapearTipo1Tipo2(registro);
+        }
 
         public Boolean GuardarRegistro(PersonaDTO registro)
         {

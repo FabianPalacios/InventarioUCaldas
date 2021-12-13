@@ -133,7 +133,5 @@ namespace AccesoDeDatos.DbModel.Producto
         }
 
 
-
-
     }
 }

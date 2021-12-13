@@ -31,7 +31,7 @@ namespace AccesoDeDatos.Implementacion.Parametros
                 var listaDatos = (from m in bd.tb_marca
                                   where m.nombre.Contains(filtro)
                                   select m).OrderBy(m => m.id).ToList();
-                totalRegistros = lista.Count();
+                totalRegistros = listaDatos.Count();
                 listaDatos = listaDatos.OrderBy(m => m.id).Skip(regDescartados).Take(numRegistrosPorPagina).ToList();
                 lista = new MapeadorMarcaDatos().MapearTipo1Tipo2(listaDatos).ToList();
             }

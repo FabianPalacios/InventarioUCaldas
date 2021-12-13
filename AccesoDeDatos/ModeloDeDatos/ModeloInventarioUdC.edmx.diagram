@@ -23,6 +23,7 @@
         <AssociationConnector Association="InventarioUdCModel.FK__tb_produc__id_ma__276EDEB3" ManuallyRouted="false" />
         <AssociationConnector Association="InventarioUdCModel.FK__tb_produc__id_pe__2B3F6F97" ManuallyRouted="false" />
         <AssociationConnector Association="InventarioUdCModel.FK__tb_produc__id_ti__29572725" ManuallyRouted="false" />
+        <AssociationConnector Association="InventarioUdCModel.FK__tb_foto__id_prod__3A81B327" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

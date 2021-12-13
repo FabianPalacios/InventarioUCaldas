@@ -43,6 +43,20 @@ namespace AccesoDeDatos.Implementacion.Producto
             return lista;
         }
 
+        public IEnumerable<ProductoDbModel> ListarProductosPersona(int idPersona)
+        {
+            var lista = new List<ProductoDbModel>();
+
+            using (InventarioUdCEntities bd = new InventarioUdCEntities())
+            {
+                var listaDatos = (from m in bd.tb_producto
+                                  where m.id_persona.Equals(idPersona)
+                                  select m).OrderBy(m => m.id).ToList();
+                lista = new MapeadorProductoDatos().MapearTipo1Tipo2(listaDatos).ToList();
+            }
+            return lista;
+        }
+
         public IEnumerable<MarcaDbModel> ListarRegistrosMarca()
         {
             var lista = new List<MarcaDbModel>();
