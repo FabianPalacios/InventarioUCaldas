@@ -1,0 +1,62 @@
+﻿@model InventarioUCaldas.GUI.Models.Seguridad.LoginModel
+
+@{ ViewBag.Title = "Login"; }
+
+
+<h2>Iniciar sesión</h2>
+
+@using (Html.BeginForm())
+{
+@Html.AntiForgeryToken()
+
+                <div class="form-horizontal">
+                    <hr />
+                    <h5>Ingrese los datos en los espacios requeridos.</h5>
+
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    @if (ViewBag.ErrorMessage != null)
+                    {
+    <strong>@ViewBag.ErrorMessage</strong>}
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.UserName, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control", @type = "password" } })
+                            @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <div class="g-recaptcha" data-sitekey="6LexxrMaAAAAAPtJO497_0QfFrhZab71sdbjYrCa"></div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            @Html.ActionLink("¿Olvidaste tu contraseña?", "PasswordReset", "User")
+                        </div>
+                    </div>
+
+                    @*
+                        <nav>
+                            <ul class="menu-general center-block">
+                                <li class="col-md-2 col-sm-2 col-xs-12 btn"><a href="#">¿Olvidaste tu contraseña?</a></li>
+                            </ul>
+                        </nav>
+                    *@
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Ingresar" class="btn btn-primary" />
+                        </div>
+                    </div>
+                </div>}
+<script src="https://www.google.com/recaptcha/api.js" type="text/javascript"></script>
+

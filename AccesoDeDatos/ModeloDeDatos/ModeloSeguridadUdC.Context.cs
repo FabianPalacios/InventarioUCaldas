@@ -29,5 +29,7 @@ namespace AccesoDeDatos.ModeloDeDatos
         public virtual DbSet<SEC_SESSION> SEC_SESSION { get; set; }
         public virtual DbSet<SEC_USER> SEC_USER { get; set; }
         public virtual DbSet<SEC_USER_ROLE> SEC_USER_ROLE { get; set; }
+        public virtual DbSet<SEC_FORM> SEC_FORM { get; set; }
+        public virtual DbSet<SEC_FORMS_ROLE> SEC_FORMS_ROLE { get; set; }
     }
 }

@@ -1,6 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -46,10 +45,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=3.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
@@ -131,12 +130,15 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Parametros\CategoriaController.cs" />
     <Compile Include="Controllers\Parametros\MarcaController.cs" />
     <Compile Include="Controllers\Persona\PersonaController.cs" />
     <Compile Include="Controllers\Producto\ProductoController.cs" />
     <Compile Include="Controllers\Producto\TipoProductoController.cs" />
+    <Compile Include="Controllers\Seguridad\RoleController.cs" />
+    <Compile Include="Controllers\Seguridad\UserController.cs" />
     <Compile Include="Controllers\Ubicacion\EdificioController.cs" />
     <Compile Include="Controllers\Ubicacion\EspacioController.cs" />
     <Compile Include="Controllers\Ubicacion\PisoController.cs" />
@@ -146,6 +148,7 @@
     </Compile>
     <Compile Include="Helpers\DatosGenerales.cs" />
     <Compile Include="Helpers\Mensaje.cs" />
+    <Compile Include="Helpers\Messages.cs" />
     <Compile Include="Mapeadores\MapeadorBaseGUI.cs" />
     <Compile Include="Mapeadores\Parametros\MapeadorCategoriaGUI.cs" />
     <Compile Include="Mapeadores\Parametros\MapeadorMarcaGUI.cs" />
@@ -153,10 +156,14 @@
     <Compile Include="Mapeadores\Producto\MapeadorFotoProductoGUI.cs" />
     <Compile Include="Mapeadores\Producto\MapeadorProductoGUI.cs" />
     <Compile Include="Mapeadores\Producto\MapeadorTipoProductoGUI.cs" />
+    <Compile Include="Mapeadores\Seguridad\FormModelMapper.cs" />
+    <Compile Include="Mapeadores\Seguridad\RoleModelMapper.cs" />
+    <Compile Include="Mapeadores\Seguridad\UserModelMapper.cs" />
     <Compile Include="Mapeadores\Ubicacion\MapeadorEdificioGUI.cs" />
     <Compile Include="Mapeadores\Ubicacion\MapeadorEspacioGUI.cs" />
     <Compile Include="Mapeadores\Ubicacion\MapeadorPisoGUI.cs" />
     <Compile Include="Mapeadores\Ubicacion\MapeadorSedeGUI.cs" />
+    <Compile Include="Models\ModelBase.cs" />
     <Compile Include="Models\Parametros\ModeloCategoriaGUI.cs" />
     <Compile Include="Models\Parametros\ModeloMarcaGUI.cs" />
     <Compile Include="Models\Persona\ModeloPersonaGUI.cs" />
@@ -164,6 +171,14 @@
     <Compile Include="Models\Producto\ModeloCargaImagenProductoGUI.cs" />
     <Compile Include="Models\Producto\ModeloProductoGUI.cs" />
     <Compile Include="Models\Producto\ModeloTipoProductoGUI.cs" />
+    <Compile Include="Models\Seguridad\ChangePasswordModel.cs" />
+    <Compile Include="Models\Seguridad\FormModel.cs" />
+    <Compile Include="Models\Seguridad\FormsRoleModel.cs" />
+    <Compile Include="Models\Seguridad\LoginModel.cs" />
+    <Compile Include="Models\Seguridad\PasswordResetModel.cs" />
+    <Compile Include="Models\Seguridad\RoleModel.cs" />
+    <Compile Include="Models\Seguridad\UserModel.cs" />
+    <Compile Include="Models\Seguridad\UserRoleModel.cs" />
     <Compile Include="Models\Ubicacion\ModeloEdificioGUI.cs" />
     <Compile Include="Models\Ubicacion\ModeloEspacioGUI.cs" />
     <Compile Include="Models\Ubicacion\ModeloPisoGUI.cs" />
@@ -257,10 +272,26 @@
     <Content Include="Views\Producto\Delete.cshtml" />
     <Content Include="Views\Producto\Create.cshtml" />
     <Content Include="Views\Producto\SubirFoto.cshtml" />
+    <Content Include="Views\Role\Create.cshtml" />
+    <Content Include="Views\Role\Delete.cshtml" />
+    <Content Include="Views\Role\Details.cshtml" />
+    <Content Include="Views\Role\Edit.cshtml" />
+    <Content Include="Views\Role\Index.cshtml" />
+    <Content Include="Views\User\Create.cshtml" />
+    <Content Include="Views\User\Delete.cshtml" />
+    <Content Include="Views\User\Edit.cshtml" />
+    <Content Include="Views\User\Index.cshtml" />
+    <Content Include="Views\Role\Forms.cshtml" />
+    <Content Include="Views\User\Roles.cshtml" />
+    <Content Include="Views\User\Login.cshtml" />
+    <Content Include="Views\User\Logout.cshtml" />
+    <Content Include="Views\User\ChangePassword.cshtml" />
+    <Content Include="Views\User\PasswordReset.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="UploadFiles\FotosProducto\" />
+    <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -276,6 +307,10 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\AccesoDeDatos\AccesoDeDatos.csproj">
+      <Project>{e68944f3-6548-4e47-9dc4-dd1f1c5aaeb2}</Project>
+      <Name>AccesoDeDatos</Name>
+    </ProjectReference>
     <ProjectReference Include="..\LogicaNegocio\LogicaNegocio.csproj">
       <Project>{e03782d5-7419-42f4-afa2-cd798cba518c}</Project>
       <Name>LogicaNegocio</Name>
@@ -313,11 +348,8 @@
     <PropertyGroup>
       <ErrorText>Este proyecto hace referencia a los paquetes NuGet que faltan en este equipo. Use la restauración de paquetes NuGet para descargarlos. Para obtener más información, consulte http://go.microsoft.com/fwlink/?LinkID=322105. El archivo que falta es {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
-    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
     <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets'))" />
   </Target>
-  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
   <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.

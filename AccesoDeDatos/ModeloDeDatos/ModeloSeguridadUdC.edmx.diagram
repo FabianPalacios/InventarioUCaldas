@@ -12,6 +12,10 @@
         <AssociationConnector Association="SeguridadUdCModel.FK__SEC_USER___ROLEI__1A14E395" ManuallyRouted="false" />
         <AssociationConnector Association="SeguridadUdCModel.USERID_SEC_SESSION_FK" ManuallyRouted="false" />
         <AssociationConnector Association="SeguridadUdCModel.FK__SEC_USER___USERI__1920BF5C" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="SeguridadUdCModel.SEC_FORM" Width="1.5" PointX="3.75" PointY="7.375" />
+        <EntityTypeShape EntityType="SeguridadUdCModel.SEC_FORMS_ROLE" Width="1.5" PointX="6" PointY="1.375" />
+        <AssociationConnector Association="SeguridadUdCModel.FK__SEC_FORMS__FORM___2C3393D0" />
+        <AssociationConnector Association="SeguridadUdCModel.FK__SEC_FORMS__ROLE___2B3F6F97" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

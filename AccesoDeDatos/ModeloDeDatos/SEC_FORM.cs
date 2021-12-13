@@ -12,23 +12,18 @@ namespace AccesoDeDatos.ModeloDeDatos
     using System;
     using System.Collections.Generic;
     
-    public partial class SEC_ROLE
+    public partial class SEC_FORM
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public SEC_ROLE()
+        public SEC_FORM()
         {
-            this.SEC_USER_ROLE = new HashSet<SEC_USER_ROLE>();
             this.SEC_FORMS_ROLE = new HashSet<SEC_FORMS_ROLE>();
         }
     
         public int ID { get; set; }
         public string NAME { get; set; }
-        public bool REMOVED { get; set; }
-        public string DESCRIPTION { get; set; }
-        public string DOCUMENT { get; set; }
+        public string URL { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<SEC_USER_ROLE> SEC_USER_ROLE { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SEC_FORMS_ROLE> SEC_FORMS_ROLE { get; set; }
     }
