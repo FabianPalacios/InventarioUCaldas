@@ -30,7 +30,7 @@ namespace AccesoDeDatos.Implementacion.Persona
                 var listaDatos = (from m in bd.tb_persona
                                   where m.documento.Contains(filtro)
                                   select m).OrderBy(m => m.id).ToList();
-                totalRegistros = lista.Count();
+                totalRegistros = listaDatos.Count();
                 listaDatos = listaDatos.OrderBy(m => m.id).Skip(regDescartados).Take(numRegistrosPorPagina).ToList();
                 lista = new MapeadorPersonaDatos().MapearTipo1Tipo2(listaDatos).ToList();
             }

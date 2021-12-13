@@ -7,48 +7,55 @@
 
 <h2>Edificio</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+<button type="button" class="btn btn-success">@Html.ActionLink("Create New", "Create")</button>
 
 
 
-<input type="text" name="filtro" placeholder="Buscar" />
-<input type="submit" name="submit" value="buscar" />
-<table class="table table-responsive">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Nombre)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Bloque)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.NombreSede)
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nombre)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Bloque)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NombreSede)
-            </td>
-            <td>
-                @Html.ActionLink("Editar", "Edit", new { id = item.Id }, new { @class = "btn btn-primary" }) |
-                @Html.ActionLink("Detalles", "Details", new { id = item.Id }, new { @class = "btn btn-warning" }) |
-                @Html.ActionLink("Eliminar", "Delete", new { id = item.Id }, new { @class = "btn btn-danger" })
-            </td>
-        </tr>
-        }
-    </tbody>
-</table>
-@Html.Partial("_FooterPagedList")
+@using (Html.BeginForm())
+{
+    <center>
+        <p>
+            Buscar Edificio: @Html.TextBox("filtro", ViewBag.FilterValue as string)
+            <input type="submit" class="btn btn-light" value="Buscar" />
+        </p>
+        <table class="table table-responsive table-striped">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Nombre)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Bloque)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.NombreSede)
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Nombre)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Bloque)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.NombreSede)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Editar", "Edit", new { id = item.Id }, new { @class = "btn btn-primary" }) |
+                            @Html.ActionLink("Detalles", "Details", new { id = item.Id }, new { @class = "btn btn-warning" }) |
+                            @Html.ActionLink("Eliminar", "Delete", new { id = item.Id }, new { @class = "btn btn-danger" })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </center>
+}
+<center>
+    @Html.Partial("_FooterPagedList")
+</center>

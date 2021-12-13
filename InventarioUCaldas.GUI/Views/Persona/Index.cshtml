@@ -7,72 +7,79 @@
 
 <h2>Persona</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+<button type="button" class="btn btn-success">@Html.ActionLink("Create New", "Create")</button>
 
 
 
-<input type="text" name="filtro" placeholder="Buscar" />
-<input type="submit" name="submit" value="buscar" />
-<table class="table table-responsive">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Primer_Nombre)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Otros_Nombres)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Primer_Apellido)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Segundo_Apellido)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Documento)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Celular)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Correo)
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Primer_Nombre)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Otros_Nombres)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Primer_Apellido)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Segundo_Apellido)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Documento)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Celular)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Correo)
-            </td>
-            <td>
-                @Html.ActionLink("Editar", "Edit", new { id = item.Id }, new { @class = "btn btn-primary" }) |
-                @Html.ActionLink("Detalles", "Details", new { id = item.Id }, new { @class = "btn btn-warning" }) |
-                @Html.ActionLink("Eliminar", "Delete", new { id = item.Id }, new { @class = "btn btn-danger" })
-            </td>
-        </tr>
-        }
-    </tbody>
-</table>
-@Html.Partial("_FooterPagedList")
+@using (Html.BeginForm())
+{
+    <center>
+        <p>
+            Buscar Persona: @Html.TextBox("filtro", ViewBag.FilterValue as string)
+            <input type="submit" class="btn btn-light" value="Buscar" />
+        </p>
+        <table class="table table-responsive table-striped">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Primer_Nombre)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Otros_Nombres)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Primer_Apellido)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Segundo_Apellido)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Documento)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Celular)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Correo)
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Primer_Nombre)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Otros_Nombres)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Primer_Apellido)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Segundo_Apellido)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Documento)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Celular)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Correo)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Editar", "Edit", new { id = item.Id }, new { @class = "btn btn-primary" }) |
+                            @Html.ActionLink("Detalles", "Details", new { id = item.Id }, new { @class = "btn btn-warning" }) |
+                            @Html.ActionLink("Eliminar", "Delete", new { id = item.Id }, new { @class = "btn btn-danger" })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </center>
+}
+<center>
+    @Html.Partial("_FooterPagedList")
+</center>

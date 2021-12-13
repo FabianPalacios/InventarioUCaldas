@@ -30,7 +30,7 @@ namespace AccesoDeDatos.Implementacion.Ubicacion
                 var listaDatos = (from e in bd.tb_espacio
                                   where e.nombre.Contains(filtro)
                                   select e).OrderBy(m => m.id).ToList();
-                totalRegistros = lista.Count();
+                totalRegistros = listaDatos.Count();
                 listaDatos = listaDatos.OrderBy(m => m.id).Skip(regDescartados).Take(numRegistrosPorPagina).ToList();
                 lista = new MapeadorEspacioDatos().MapearTipo1Tipo2(listaDatos).ToList();
             }

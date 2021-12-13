@@ -7,80 +7,87 @@
 
 <h2>Producto</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+<button type="button" class="btn btn-success">@Html.ActionLink("Create New", "Create")</button>
 
 
 
-<input type="text" name="filtro" placeholder="Buscar" />
-<input type="submit" name="submit" value="buscar" />
-<table class="table table-responsive">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Nombre)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.FechaRegistro)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.NombreMarca)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.NombreCategoria)
-            </th>
-            <th> 
-                @Html.DisplayNameFor(model => model.NombreProducto)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Serial)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.NombreEspacio)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DocumentoPersona)
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nombre)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FechaRegistro)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NombreMarca)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NombreCategoria)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NombreProducto)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Serial)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NombreEspacio)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DocumentoPersona)
-            </td>
-            <td>
-                @Html.ActionLink("Editar", "Edit", new { id = item.Id }, new { @class = "btn btn-primary" }) |
-                @Html.ActionLink("Detalles", "Details", new { id = item.Id }, new { @class = "btn btn-warning" }) |
-                @Html.ActionLink("Eliminar", "Delete", new { id = item.Id }, new { @class = "btn btn-danger" })
-                @Html.ActionLink("Fotografia", "SubirFoto", new { id = item.Id }, new { @class = "btn btn-info" })
+@using (Html.BeginForm())
+{
+    <center>
+        <p>
+            Buscar Producto: @Html.TextBox("filtro", ViewBag.FilterValue as string)
+            <input type="submit" class="btn btn-light" value="Buscar" />
+        </p>
+        <table class="table table-responsive table-striped">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Nombre)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.FechaRegistro)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.NombreMarca)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.NombreCategoria)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.NombreProducto)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Serial)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.NombreEspacio)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.DocumentoPersona)
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Nombre)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FechaRegistro)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.NombreMarca)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.NombreCategoria)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.NombreProducto)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Serial)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.NombreEspacio)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DocumentoPersona)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Editar", "Edit", new { id = item.Id }, new { @class = "btn btn-primary" }) |
+                            @Html.ActionLink("Detalles", "Details", new { id = item.Id }, new { @class = "btn btn-warning" }) |
+                            @Html.ActionLink("Eliminar", "Delete", new { id = item.Id }, new { @class = "btn btn-danger" })
+                            @Html.ActionLink("Fotografia", "SubirFoto", new { id = item.Id }, new { @class = "btn btn-info" })
 
-            </td>
-        </tr>
-        }
-    </tbody>
-</table>
-@Html.Partial("_FooterPagedList")
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </center>
+}
+<center>
+    @Html.Partial("_FooterPagedList")
+</center>

@@ -28,7 +28,7 @@ namespace AccesoDeDatos.Implementacion.Producto
                 var listaDatos = (from t in bd.tb_tipoProducto
                                   where t.nombre.Contains(filtro)
                                   select t).OrderBy(m => m.id).ToList();
-                totalRegistros = lista.Count();
+                totalRegistros = listaDatos.Count();
                 listaDatos = listaDatos.OrderBy(m => m.id).Skip(regDescartados).Take(numRegistrosPorPagina).ToList();
                 lista = new MapeadorTipoProductoDatos().MapearTipo1Tipo2(listaDatos).ToList();
             }

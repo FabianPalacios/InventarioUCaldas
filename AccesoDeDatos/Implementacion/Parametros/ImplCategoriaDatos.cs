@@ -31,7 +31,7 @@ namespace AccesoDeDatos.Implementacion.Parametros
                 var listaDatos = (from c in bd.tb_categoria
                                   where c.nombre.Contains(filtro)
                                   select c).OrderBy(m => m.id).ToList();
-                totalRegistros = lista.Count();
+                totalRegistros = listaDatos.Count();
                 listaDatos = listaDatos.OrderBy(m => m.id).Skip(regDescartados).Take(numRegistrosPorPagina).ToList();
                 lista = new MapeadorCategoriaDatos().MapearTipo1Tipo2(listaDatos).ToList();
             }
