@@ -8,42 +8,44 @@
 <h2>Marca</h2>
 
 <button type="button" class="btn btn-success">@Html.ActionLink("Create New", "Create")</button>
+<button type="button" class="btn btn-warning">@Html.ActionLink("Imprimir Reporte", "Print")</button>
+
 
 
 @using (Html.BeginForm())
 {
-<center>
-    <p>
-        Buscar Marca: @Html.TextBox("filtro", ViewBag.FilterValue as string)
-        <input type="submit" class="btn btn-light" value="Buscar" />
-    </p>
+    <center>
+        <p>
+            Buscar Marca: @Html.TextBox("filtro", ViewBag.FilterValue as string)
+            <input type="submit" class="btn btn-light" value="Buscar" />
+        </p>
 
-    <table class="table table-responsive table-striped">
-        <thead>
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.Nombre)
-                </th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
-            {
+        <table class="table table-responsive table-striped">
+            <thead>
                 <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Nombre)
-                    </td>
-                    <td>
-                        @Html.ActionLink("Editar", "Edit", new { id = item.Id }, new { @class = "btn btn-primary" }) |
-                        @Html.ActionLink("Detalles", "Details", new { id = item.Id }, new { @class = "btn btn-warning" }) |
-                        @Html.ActionLink("Eliminar", "Delete", new { id = item.Id }, new { @class = "btn btn-danger" })
-                    </td>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Nombre)
+                    </th>
+                    <th></th>
                 </tr>
-            }
-        </tbody>
-    </table>
-</center>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Nombre)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Editar", "Edit", new { id = item.Id }, new { @class = "btn btn-primary" }) |
+                            @Html.ActionLink("Detalles", "Details", new { id = item.Id }, new { @class = "btn btn-warning" }) |
+                            @Html.ActionLink("Eliminar", "Delete", new { id = item.Id }, new { @class = "btn btn-danger" })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </center>
 }
 <center>
     @Html.Partial("_FooterPagedList")

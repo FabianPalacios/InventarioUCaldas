@@ -1,12 +1,15 @@
-﻿using InventarioUCaldas.GUI.Helpers;
+﻿    using InventarioUCaldas.GUI.Helpers;
 using InventarioUCaldas.GUI.Mapeadores.Parametros;
 using InventarioUCaldas.GUI.Mapeadores.Producto;
 using InventarioUCaldas.GUI.Models.Parametros;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
 using LogicaNegocio.DTO.Parametros;
 using LogicaNegocio.Implementacion.Parametros;
 using PagedList;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -153,6 +156,34 @@ namespace InventarioUCaldas.GUI.Controllers.Parametros
                 return View("Delete", modelo);
             }
 
+        }
+
+        public FileStreamResult Print()
+        {
+            DateTime hoy = DateTime.Now;
+            string fecha_creacion = string.Format("{0}_{1}_{2}_{3}", hoy.Day, hoy.Hour, hoy.Minute, hoy.Millisecond);
+            string nombre_archivo = string.Concat("marcas_" + fecha_creacion + ".pdf");
+            string ruta = Server.MapPath("~/pdfReports/Marcas/" + nombre_archivo);
+            MapeadorMarcaGUI mapeador = new MapeadorMarcaGUI();
+            IEnumerable<ModeloMarcaGUI> listaDatos = mapeador.MapearTipo1Tipo2(logica.ListarRegistrosReporte());
+
+            FabricaArchivosPdf fabrica = new FabricaArchivosPdf();
+            bool archivoCreado = fabrica.CrearListadoMarcasEnPdf(ruta, "Listado Marcas", listaDatos);
+
+
+            if(archivoCreado)
+            {
+                var fileStream = new FileStream(ruta,
+                                                FileMode.Open,
+                                                FileAccess.Read
+                                                );
+                var fsResult = new FileStreamResult(fileStream, "application/pdf");
+                return fsResult;
+            }
+            else
+            {
+                throw new Exception("Error leyendo el archivo");
+            }
         }
     }
 }
