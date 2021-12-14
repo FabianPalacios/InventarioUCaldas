@@ -4,16 +4,16 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="ada3c164ec0b4e13996eb6368b119ffd" Name="Diagram1">
-        <EntityTypeShape EntityType="SeguridadUdCModel.SEC_ROLE" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="SeguridadUdCModel.SEC_SESSION" Width="1.5" PointX="3" PointY="3.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="SeguridadUdCModel.SEC_USER" Width="1.5" PointX="0.75" PointY="3.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="SeguridadUdCModel.SEC_USER_ROLE" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+      <Diagram DiagramId="ada3c164ec0b4e13996eb6368b119ffd" Name="Diagram1" ZoomLevel="85">
+        <EntityTypeShape EntityType="SeguridadUdCModel.SEC_ROLE" Width="1.5" PointX="7.125" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SeguridadUdCModel.SEC_SESSION" Width="1.5" PointX="7.75" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="SeguridadUdCModel.SEC_USER" Width="1.5" PointX="4.625" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SeguridadUdCModel.SEC_USER_ROLE" Width="1.5" PointX="9.625" PointY="1.875" IsExpanded="true" />
         <AssociationConnector Association="SeguridadUdCModel.FK__SEC_USER___ROLEI__1A14E395" ManuallyRouted="false" />
         <AssociationConnector Association="SeguridadUdCModel.USERID_SEC_SESSION_FK" ManuallyRouted="false" />
         <AssociationConnector Association="SeguridadUdCModel.FK__SEC_USER___USERI__1920BF5C" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="SeguridadUdCModel.SEC_FORM" Width="1.5" PointX="3.75" PointY="7.375" />
-        <EntityTypeShape EntityType="SeguridadUdCModel.SEC_FORMS_ROLE" Width="1.5" PointX="6" PointY="1.375" />
+        <EntityTypeShape EntityType="SeguridadUdCModel.SEC_FORM" Width="1.5" PointX="11.5" PointY="4.375" />
+        <EntityTypeShape EntityType="SeguridadUdCModel.SEC_FORMS_ROLE" Width="1.5" PointX="11.75" PointY="1.25" />
         <AssociationConnector Association="SeguridadUdCModel.FK__SEC_FORMS__FORM___2C3393D0" />
         <AssociationConnector Association="SeguridadUdCModel.FK__SEC_FORMS__ROLE___2B3F6F97" />
       </Diagram>

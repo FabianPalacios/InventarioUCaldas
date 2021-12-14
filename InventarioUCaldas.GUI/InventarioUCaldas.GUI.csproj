@@ -148,6 +148,7 @@
     </Compile>
     <Compile Include="Helpers\DatosGenerales.cs" />
     <Compile Include="Helpers\Mensaje.cs" />
+    <Compile Include="Helpers\Menu.cs" />
     <Compile Include="Helpers\Messages.cs" />
     <Compile Include="Mapeadores\MapeadorBaseGUI.cs" />
     <Compile Include="Mapeadores\Parametros\MapeadorCategoriaGUI.cs" />

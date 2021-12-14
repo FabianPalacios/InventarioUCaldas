@@ -204,5 +204,15 @@ namespace LogicaNegocio.Implementacion.Seguridad
             RoleDTOMapper mapper = new RoleDTOMapper();
             return mapper.MapearTipo1Tipo2(list);
         }
+
+
+        public IEnumerable<FormDTO> GetRoleFormsByUser(int userId) 
+        {
+            IEnumerable<FormDbModel> dbModelList = model.GetRoleFormsByUser(userId);
+            FormDTOMapper mapper = new FormDTOMapper();
+            IEnumerable<FormDTO> list = mapper.MapearTipo1Tipo2(dbModelList);
+            return list;
+        }
+
     }
 }

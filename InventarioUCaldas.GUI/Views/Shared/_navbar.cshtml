@@ -1,97 +1,59 @@
 ﻿<div class="navbar navbar-inverse navbar-fixed-top" style="    background-color: #393e46    ">
 
-    <a class="navbar-brand" href="#">
-        @Html.ActionLink("Inventario", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-    </a>
+    <div class="container">
 
-    <div class="nav navbar-nav navbar-right">
-        @if (Session.Count > 0)
-        {
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            @Html.ActionLink("Inventario", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+        </div>
 
-            <div id="mySidenav" class="sidenav" style="width:280px;float:right;margin:auto;margin-right:14em;">
-                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
 
-                <a>@Html.ActionLink("Inicio", "Index", "Home")</a>
-                <a>@Html.ActionLink("Acerca de", "About", "Home")</a>
-                <a>@Html.ActionLink("Contacto", "Contact", "Home")</a>
-                <a>@Html.ActionLink("Marca", "Index", "Marca")</a>
-                <a>@Html.ActionLink("Categoria", "Index", "Categoria")</a>
-                <a>@Html.ActionLink("Tipo Producto", "Index", "TipoProducto")</a>
-                <a>@Html.ActionLink("Sede", "Index", "Sede")</a>
-                <a>@Html.ActionLink("Edificio", "Index", "Edificio")</a>
-                <a>@Html.ActionLink("Piso", "Index", "Piso")</a>
-                <a>@Html.ActionLink("Espacio", "Index", "Espacio")</a>
-                <a>@Html.ActionLink("Persona", "Index", "Persona")</a>
-                <a>@Html.ActionLink("Producto", "Index", "Producto")</a>
-                <a>@Html.ActionLink("Role", "Index", "Role")</a>
-                <a>@Html.ActionLink("Usuario", "Index", "User")</a>
+                @if (Session.Count > 0)
+                {
+                    int userId = Int32.Parse(Session["userId"].ToString());
+                    IEnumerable<InventarioUCaldas.GUI.Models.Seguridad.FormModel> list = InventarioUCaldas.GUI.Helpers.Menu.GetMenuForms(userId);
 
-            </div>
+                    @*
+                    foreach (var menu in list)
+                    {
+                        <li><a href="@menu.Url">@menu.Name</a></li>
+                    }
+                    *@
+                    <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Acerca de", "About", "Home")</li>
+                    <li>@Html.ActionLink("Contacto", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Marca", "Index", "Marca")</li>
+                    <li>@Html.ActionLink("Categoria", "Index", "Categoria")</li>
+                    <li>@Html.ActionLink("Tipo Producto", "Index", "TipoProducto")</li>
+                    <li>@Html.ActionLink("Sede", "Index", "Sede")</li>
+                    <li>@Html.ActionLink("Edificio", "Index", "Edificio")</li>
+                    <li>@Html.ActionLink("Piso", "Index", "Piso")</li>
+                    <li>@Html.ActionLink("Espacio", "Index", "Espacio")</li>
+                    <li>@Html.ActionLink("Persona", "Index", "Persona")</li>
+                    <li>@Html.ActionLink("Producto", "Index", "Producto")</li>
+                    <li>@Html.ActionLink("Role", "Index", "Role")</li>
+                    <li>@Html.ActionLink("Usuario", "Index", "User")</li>
 
-            <li>@Html.ActionLink("Cerrar sesión", "Logout", "User")</li>
-            <li>@Html.ActionLink("Cambio de contraseña", "ChangePassword", "User")</li><span style="font-size:30px;cursor:pointer; color:white" onclick="openNav()">&#9776; </span>
-            <script>
-                function openNav() {
-                    document.getElementById("mySidenav").style.width = "250px";
-                }
+                    <li>@Html.ActionLink("Cerrar sesión", "Logout", "User")</li>
+                    <li>@Html.ActionLink("Cambio de contraseña", "ChangePassword", "User")</li>
 
-                function closeNav() {
-                    document.getElementById("mySidenav").style.width = "0";
-                }
-            </script>
+                 }
+                 else
+                 {
+                    <li>@Html.ActionLink("Acerca de", "About", "Home")</li>
+                    <li>@Html.ActionLink("Iniciar sesión", "Login", "User")</li>
+                 }
 
-
-        }
-        else
-        {
-            <li>@Html.ActionLink("Acerca de", "About", "Home")</li>
-            <li>@Html.ActionLink("Iniciar sesión", "Login", "User")</li>
-        }
+            </ul>
+        </div>
     </div>
 </div>
 
 
-    <style type="text/css">
-
-
-        #sidenav.active {
-            right: 10px;
-        }
-
-        .sidenav {
-            height: 100%;
-            width: 0;
-            position: fixed;
-            z-index: 1;
-            right: -210px;
-            top: 0;
-            left: 0;
-            background-color: #047c84;
-            overflow-x: hidden;
-            transition: 0.5s;
-            padding-top: 60px;
-        }
-
-            .sidenav a {
-                padding: 8px 8px 8px 32px;
-                text-decoration: none;
-                font-size: 18px;
-                color: #eeefef;
-                display: block;
-                transition: 0.3s;
-            }
-
-                .sidenav a:hover {
-                    color: #79d4dc;
-                }
-
-            .sidenav .closebtn {
-                position: absolute;
-                color: #e1e1e1;
-                top: 0;
-                right: 25px;
-                font-size: 36px;
-                margin-left: 50px;
-            }
-
-    </style>
+    

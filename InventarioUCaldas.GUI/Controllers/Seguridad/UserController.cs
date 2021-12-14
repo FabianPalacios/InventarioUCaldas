@@ -283,6 +283,7 @@ namespace InventarioUCaldas.GUI.Controllers.Seguridad
             {
                 Session["username"] = model.UserName;
                 Session["token"] = login.Token;
+                Session["userId"] = login.Id;
                 return RedirectToAction("Index", "Home");
             }
 

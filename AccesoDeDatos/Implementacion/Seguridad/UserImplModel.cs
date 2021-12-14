@@ -321,5 +321,25 @@ namespace AccesoDeDatos.Implementacion.Seguridad
             }
 
         }
+
+        public IEnumerable<FormDbModel> GetRoleFormsByUser(int userId) 
+        {
+            using (SeguridadUdCEntities db = new SeguridadUdCEntities()) 
+            {
+                IEnumerable<SEC_FORM> list = (from u in db.SEC_USER
+                                              join ur in db.SEC_USER_ROLE on u.ID equals ur.USERID
+                                              join r in db.SEC_ROLE on ur.ROLEID equals r.ID
+                                              join fr in db.SEC_FORMS_ROLE on r.ID equals fr.ROLE_ID
+                                              join f in db.SEC_FORM on fr.FORM_ID equals f.ID
+                                              where u.ID == userId
+                                              select f).Distinct().ToList();
+
+                IEnumerable<FormDbModel> formslist = new FormModelMapper().MapearTipo1Tipo2(list).ToList();
+
+                return formslist; 
+            }
+        
+        }
+
     }
 }
