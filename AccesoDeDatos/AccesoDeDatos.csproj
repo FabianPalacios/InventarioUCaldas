@@ -50,12 +50,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DbModel\DbModelBase.cs" />
     <Compile Include="DbModel\Parametros\CategoriaDbModel.cs" />
     <Compile Include="DbModel\Parametros\MarcaDbModel.cs" />
     <Compile Include="DbModel\Persona\PersonaDbModel.cs" />
     <Compile Include="DbModel\Producto\FotoProductoDbModel.cs" />
     <Compile Include="DbModel\Producto\ProductoDbModel.cs" />
     <Compile Include="DbModel\Producto\TipoProductoDbModel.cs" />
+    <Compile Include="DbModel\Seguridad\FormDbModel.cs" />
+    <Compile Include="DbModel\Seguridad\RoleDbModel.cs" />
+    <Compile Include="DbModel\Seguridad\UserDbModel.cs" />
     <Compile Include="DbModel\Ubicacion\EdificioDbModel.cs" />
     <Compile Include="DbModel\Ubicacion\EspacioDbModel.cs" />
     <Compile Include="DbModel\Ubicacion\PisoDbModel.cs" />
@@ -65,6 +69,8 @@
     <Compile Include="Implementacion\Persona\ImplPersonaDatos.cs" />
     <Compile Include="Implementacion\Producto\ImplProductoDatos.cs" />
     <Compile Include="Implementacion\Producto\ImplTipoProductoDatos.cs" />
+    <Compile Include="Implementacion\Seguridad\RoleImplModel.cs" />
+    <Compile Include="Implementacion\Seguridad\UserImplModel.cs" />
     <Compile Include="Implementacion\Ubicacion\ImplEdificioDatos.cs" />
     <Compile Include="Implementacion\Ubicacion\ImplEspacioDatos.cs" />
     <Compile Include="Implementacion\Ubicacion\ImplPisoDatos.cs" />
@@ -76,6 +82,9 @@
     <Compile Include="Mapeadores\Producto\MapeadorFotoProductoDatos.cs" />
     <Compile Include="Mapeadores\Producto\MapeadorProductoDatos.cs" />
     <Compile Include="Mapeadores\Producto\MapeadorTipoProductoDatos.cs" />
+    <Compile Include="Mapeadores\Seguridad\FormModelMapper.cs" />
+    <Compile Include="Mapeadores\Seguridad\RoleModelMapper.cs" />
+    <Compile Include="Mapeadores\Seguridad\UserModelMapper.cs" />
     <Compile Include="Mapeadores\Ubicacion\MapeadorEdificioDatos.cs" />
     <Compile Include="Mapeadores\Ubicacion\MapeadorEspacioDatos.cs" />
     <Compile Include="Mapeadores\Ubicacion\MapeadorPisoDatos.cs" />
@@ -109,6 +118,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ModeloSeguridadUdC.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="ModeloDeDatos\SEC_FORM.cs">
+      <DependentUpon>ModeloSeguridadUdC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModeloDeDatos\SEC_FORMS_ROLE.cs">
+      <DependentUpon>ModeloSeguridadUdC.tt</DependentUpon>
     </Compile>
     <Compile Include="ModeloDeDatos\SEC_ROLE.cs">
       <DependentUpon>ModeloSeguridadUdC.tt</DependentUpon>

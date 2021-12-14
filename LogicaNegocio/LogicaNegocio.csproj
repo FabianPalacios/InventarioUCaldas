@@ -52,12 +52,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DTO\DTOBase.cs" />
     <Compile Include="DTO\Parametros\CategoriaDTO.cs" />
     <Compile Include="DTO\Parametros\MarcaDTO.cs" />
     <Compile Include="DTO\Persona\PersonaDTO.cs" />
     <Compile Include="DTO\Producto\FotoProductoDTO.cs" />
     <Compile Include="DTO\Producto\ProductoDTO.cs" />
     <Compile Include="DTO\Producto\TipoProductoDTO.cs" />
+    <Compile Include="DTO\Seguridad\FormDTO.cs" />
+    <Compile Include="DTO\Seguridad\RoleDTO.cs" />
+    <Compile Include="DTO\Seguridad\UserDTO.cs" />
     <Compile Include="DTO\Ubicacion\EdificioDTO.cs" />
     <Compile Include="DTO\Ubicacion\EspacioDTO.cs" />
     <Compile Include="DTO\Ubicacion\PisoDTO.cs" />
@@ -67,6 +71,8 @@
     <Compile Include="Implementacion\Persona\ImplPersonaLogica.cs" />
     <Compile Include="Implementacion\Producto\ImplProductoLogica.cs" />
     <Compile Include="Implementacion\Producto\ImplTipoProductoLogica.cs" />
+    <Compile Include="Implementacion\Seguridad\RoleImplController.cs" />
+    <Compile Include="Implementacion\Seguridad\UserImplController.cs" />
     <Compile Include="Implementacion\Ubicacion\ImplEdificioLogica.cs" />
     <Compile Include="Implementacion\Ubicacion\ImplEspacioLogica.cs" />
     <Compile Include="Implementacion\Ubicacion\ImplPisoLogica.cs" />
@@ -78,11 +84,16 @@
     <Compile Include="Mapeadores\Producto\MapeadorFotoProductoLogica.cs" />
     <Compile Include="Mapeadores\Producto\MapeadorProductoLogica.cs" />
     <Compile Include="Mapeadores\Producto\MapeadorTipoProductoLogica.cs" />
+    <Compile Include="Mapeadores\Seguridad\FormDTOMapper.cs" />
+    <Compile Include="Mapeadores\Seguridad\RoleDTOMapper.cs" />
+    <Compile Include="Mapeadores\Seguridad\UserDTOMapper.cs" />
     <Compile Include="Mapeadores\Ubicacion\MapeadorEdificioLogica.cs" />
     <Compile Include="Mapeadores\Ubicacion\MapeadorEspacioLogica.cs" />
     <Compile Include="Mapeadores\Ubicacion\MapeadorPisoLogica.cs" />
     <Compile Include="Mapeadores\Ubicacion\MapeadorSedeLogica.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+
+    <Compile Include="Services\Encrypt.cs" />
     <Compile Include="Services\Notifications.cs" />
   </ItemGroup>
   <ItemGroup>

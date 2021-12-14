@@ -1,0 +1,69 @@
+﻿@model InventarioUCaldas.GUI.Models.Seguridad.UserRoleModel
+
+@{
+    ViewBag.Title = "Roles";
+}
+
+<h2>Roles de usuarios</h2>
+
+
+<div>
+    <hr />
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(model => model.SelectedRoles, new { @id = "txtSelectedRoles" })
+        @Html.HiddenFor(model => model.UserId)
+        <table class=" table">
+            <thead>
+                <tr>
+                    <th>
+                        Nombre del Rol
+                    </th>
+                    <th>
+                        Selección
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    List<string> selectedRoles = Model.SelectedRoles.Split(',').ToList();
+                }
+                @foreach (var role in Model.RoleList)
+                {
+                    <tr>
+                        <td>
+                            <strong>@role.Name</strong>
+                        </td>
+                        <td>
+                            @Html.CheckBox("Role", role.IsSelectedByUser, new { @id = role.Id, @class = "roleList", @onclick = "refreshSelectedRoles()" })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        <div class="form-actions no-color">
+
+            <button class="btn btn-success" type="submit"><i class="bi-plus-circle-fill"></i>  Guardar   </button> |
+            @Html.ActionLink("Regresar", "Index")
+        </div>
+    }
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
+</div>
+
+<script type="text/javascript">
+    function refreshSelectedRoles() {
+        let selected = [];
+        $(".roleList").each((index, elem) => {
+            if ($(elem).is(":checked")) {
+                let id = $(elem).attr("id");
+                selected.push(id);
+            }
+        }).promise().done(function () {
+            $("#txtSelectedRoles").val(selected.join(","));
+            
+        });
+    }
+</script>
