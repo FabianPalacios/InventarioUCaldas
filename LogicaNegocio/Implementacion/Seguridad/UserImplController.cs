@@ -40,7 +40,7 @@ namespace LogicaNegocio.Implementacion.Seguridad
             if (response == 1)
             {
                 String content = String.Format("Buen día {0}, " +
-                    "<br /> Usted ha sido registrado en la plataforma Contructora UdeC S.A.S. " +
+                    "<br /> Usted ha sido registrado en la plataforma InventarioUdC " +
                     "Sus credenciales de acceso son: <br/>" +
                     " <ul>" +
                     "<li> Usuario: {1}</li>" +
@@ -124,8 +124,8 @@ namespace LogicaNegocio.Implementacion.Seguridad
             var response = model.PasswordReset(email, newPassword);
             if (response == 1)
             {
-                String content = String.Format("Buen día, " +
-                    "<br /> Hemos recibido una solicitud de cambio de contraseña para la plataforma Contructora UdeC S.A.S. " +
+                String content = String.Format("Buenos días, " +
+                    "<br /> Hemos recibido una solicitud de cambio de contraseña para la plataforma Inventarios UdC. " +
                     "Sus credenciales de acceso son: <br/>" +
                     " <ul>" +
                     "<li> Usuario: {0}</li>" +
@@ -133,8 +133,7 @@ namespace LogicaNegocio.Implementacion.Seguridad
                     "</ul>" +
                     "<br /> Cordial saludo, <br />" +
                     "Su equipo de seguridad.", email, randomPassword);
-                //new Notifications().SendEmail("Cambio de contraseña usuario UdeC", content, email,email);
-                //new Notifications().SendEmail("Restablecimiento de contraseña", "Su contraseña temporal: "+newPassword, email, "angie.1701812633@ucaldas.edu.co");
+                
                 string From = System.Configuration.ConfigurationSettings.AppSettings["EmailFromSendGrid"];
                 new Notifications().SendEmail("Recuperación de contraseña", content, email, From);
             }
@@ -156,7 +155,7 @@ namespace LogicaNegocio.Implementacion.Seguridad
             if (response == 1)
             {
                 String content = String.Format("Buen día, " +
-                    "<br /> Se ha realizado el cambio de contraseña para la plataforma Contructora UdeC S.A.S. " +
+                    "<br /> Se ha realizado el cambio de contraseña para la plataforma Inventario UdC. " +
                     "Cambio de contraseña realizado con exito<br/>" +
                     "<br /> Cordial saludo, <br />" +
                     "Su equipo de seguridad.");

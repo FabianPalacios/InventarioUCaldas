@@ -2,7 +2,11 @@
 
 @{ ViewBag.Title = "Eliminar"; }
 
-<h2>Eliminar un rol</h2>
+
+<br />
+<br />
+<br />
+<h2>ELIMINAR UN ROLE</h2>
 
 <h3>¿Estás seguro de eliminar esta información?</h3>
 <div>
@@ -28,10 +32,10 @@
 
     @using (Html.BeginForm())
     {
-@Html.AntiForgeryToken()
+        @Html.AntiForgeryToken()
 
-                <div class="form-actions no-color">
-                    <input type="submit" value="Eliminar" class="btn btn-danger" /> |
-                    @Html.ActionLink("Regresar", "Index")
-                </div>}
+        <div class="form-actions no-color">
+            <input type="submit" value="Eliminar" class="btn btn-danger" /> |
+            @Html.ActionLink("Regresar", "Index")
+        </div>}
 </div>

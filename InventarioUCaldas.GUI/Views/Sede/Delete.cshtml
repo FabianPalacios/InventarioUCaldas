@@ -4,6 +4,8 @@
     ViewBag.Title = "Delete";
 }
 <br />
+<br />
+<br />
 <h2>ELIMINAR SEDE</h2>
 
 <br />
@@ -33,10 +35,10 @@
     @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
-    <br />
-    <div class="form-actions no-color">
-        <input type="submit" value="Eliminar" class="btn btn-danger" /> |
-        <button type="button" class="btn btn-warning">@Html.ActionLink("Atrás", "Index")</button>
-    </div>
+        <br />
+        <div class="form-actions no-color">
+            <input type="submit" value="Eliminar" class="btn btn-danger" /> |
+            <button type="button" class="btn btn-warning">@Html.ActionLink("Atrás", "Index")</button>
+        </div>
     }
 </div>

@@ -2,7 +2,10 @@
 
 @{ ViewBag.Title = "Listado de Registros"; }
 
-<h2>Usuarios</h2>
+<br />
+<br />
+<br />
+<h2>USUARIOS</h2>
 
 <p>
     @Html.ActionLink("Crear usuario", "Create", new { }, new { @class = "btn btn-primary" })
@@ -34,30 +37,31 @@
     <tbody>
         @foreach (var item in Model)
         {
-<tr>
-    <td>
-        @Html.DisplayFor(modelItem => item.Name)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Lastname)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Document)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Cellphone)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Email)
-    </td>
-    <td>
-        @Html.ActionLink("Roles", "Roles", new { id = item.Id }, new { @class = "btn btn-success" }) |
-        @Html.ActionLink("Editar", "Edit", new { id = item.Id }, new { @class = "btn btn-primary" }) |
-        @Html.ActionLink("Eliminar", "Delete", new { id = item.Id }, new { @class = "btn btn-danger" })
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Lastname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Document)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cellphone)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.ActionLink("Roles", "Roles", new { id = item.Id }, new { @class = "btn btn-success" }) |
+                    @Html.ActionLink("Editar", "Edit", new { id = item.Id }, new { @class = "btn btn-primary" }) |
+                    @Html.ActionLink("Eliminar", "Delete", new { id = item.Id }, new { @class = "btn btn-danger" })
 
 
-    </td>
-</tr>}
+                </td>
+            </tr>
+        }
     </tbody>
 
 </table>

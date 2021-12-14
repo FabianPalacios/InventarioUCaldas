@@ -2,7 +2,11 @@
 
 @{ ViewBag.Title = "Listado de Registros"; }
 
-<h2>Roles</h2>
+
+<br />
+<br />
+<br />
+<h2>ROLES</h2>
 
 <p>
     @Html.ActionLink("Crear rol", "Create", new { }, new { @class = "btn btn-primary" })
@@ -24,19 +28,20 @@
     <tbody>
         @foreach (var item in Model)
         {
-<tr>
-    <td>
-        @Html.DisplayFor(modelItem => item.Name)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Description)
-    </td>
-    <td>
-        @Html.ActionLink("Formularios", "Forms", new { id = item.Id }, new { @class = "btn btn-success" })
-        @Html.ActionLink("Editar", "Edit", new { id = item.Id }, new { @class = "btn btn-primary" }) |
-        @Html.ActionLink("Eliminar", "Delete", new { id = item.Id }, new { @class = "btn btn-danger" })
-    </td>
-</tr>}
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.ActionLink("Formularios", "Forms", new { id = item.Id }, new { @class = "btn btn-success" })
+                    @Html.ActionLink("Editar", "Edit", new { id = item.Id }, new { @class = "btn btn-primary" }) |
+                    @Html.ActionLink("Eliminar", "Delete", new { id = item.Id }, new { @class = "btn btn-danger" })
+                </td>
+            </tr>
+        }
     </tbody>
 
 </table>
